@@ -332,6 +332,7 @@ spec:
           imagePullPolicy: "IfNotPresent"
           command:
             - ./cluster-autoscaler
+            - --emit-per-nodegroup-metrics={{ .EmitPerNodegroupMetrics }}
             - --balance-similar-node-groups={{ .BalanceSimilarNodeGroups }}
             - --cloud-provider={{ GetCloudProvider }}
             {{ if (eq GetCloudProvider "aws") }}
